@@ -4,6 +4,9 @@
       <!-- i18n tests -->
       <p>{{ $t('message') }}</p>
       <p>{{ $t('nav.features') }}</p>
+
+      <!-- Router tests -->
+      <router-view></router-view>
    </div>
 </template>
 
