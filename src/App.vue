@@ -4,6 +4,13 @@
       <!-- i18n tests -->
       <p>{{ $t('message') }}</p>
       <p>{{ $t('nav.features') }}</p>
+
+      <!-- Router tests -->
+      <router-view></router-view>
+
+      <!-- Router link sample -->
+      <router-link :to="`/${$i18n.locale}`">Home</router-link>
+      <router-link :to="`/${$i18n.locale}/foo`">Foo</router-link>
    </div>
 </template>
 
