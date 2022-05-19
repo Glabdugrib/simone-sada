@@ -1,6 +1,10 @@
 {
-   "message": "ciao i18n !!",
+   "message": "hello i18n !!",
    "nav": {
-      "features": "Funzionalità"
+      "home": "Home",
+      "about": "Profilo",
+      "experience": "Esperienze",
+      "projects": "Progetti",
+      "contact": "Contattami"
    }
 }

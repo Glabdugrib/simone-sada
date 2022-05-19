@@ -1,6 +1,10 @@
 {
    "message": "hello i18n !!",
    "nav": {
-      "features": "Features"
+      "home": "Home",
+      "about": "About",
+      "experience": "Experience",
+      "projects": "Projects",
+      "contact": "Contact"
    }
 }
