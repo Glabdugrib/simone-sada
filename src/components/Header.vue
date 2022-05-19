@@ -21,10 +21,12 @@
          </div>
          <!-- Dropdown -->
          <div class="dropdown">
-            <button class="ham-btn" @click="toggleDropdown()">
-               
+            <button class="dropdown-btn" @click="toggleDropdown()">
+               <div :class="[dropdownIsOpen ? 'open' : '', 'dropdown-btn__hamburger']">
+
+               </div>
             </button>
-            <aside :class="[dropdownIsActive ? 'active' : '','sidebar']">
+            <aside :class="[dropdownIsOpen ? 'open' : '','sidebar']">
                <ol>
                   <li><a href="/">{{ $t('nav.home') }}</a></li>
                   <li><a href="/#about">{{ $t('nav.about') }}</a></li>
@@ -43,13 +45,14 @@ export default {
    name: 'MainHeader',
    data() {
       return {
-         dropdownIsActive: false
+         dropdownIsOpen: false
       }
    },
    methods: {
       toggleDropdown: function() {
-         this.dropdownIsActive = !this.dropdownIsActive;
-      }
+         this.dropdownIsOpen = !this.dropdownIsOpen;
+      },
+
    }
 }
 </script>
@@ -70,7 +73,6 @@ export default {
    align-items: center;
 
    .navbar {
-      // position: relative;
       width: 100%;
       color: $lightest-slate;
       font-family: "SF Mono","Fira Code","Fira Mono","Roboto Mono",monospace;
@@ -117,10 +119,50 @@ export default {
       .dropdown {
          display: none;
 
-         .ham-btn {
-            display: inline-block;
+         .dropdown-btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
             width: 30px;
             aspect-ratio: 1;
+            transition: all .5s ease-in-out;
+            background: none;
+            border: none;
+            cursor: pointer;
+
+            .dropdown-btn__hamburger {
+               @include hamburger-line;
+
+               &::before,
+               &::after {
+                  content: '';
+                  position: absolute;
+                  @include hamburger-line;
+               }
+
+               &::before {
+                  transform: translate(-50%, -10px);
+               }
+
+               &::after {
+                  transform: translate(-50%, 10px);
+               }
+
+               // Dropdown hamburger animation
+               &.open {
+                  transform: translateX(-50%);
+                  background: transparent;
+                  box-shadow: none;
+
+                  &:before {
+                     transform: rotate(45deg) ;
+                  }
+
+                  &:after {
+                     transform: rotate(-45deg);
+                  }
+               }
+            }
          }
 
          .sidebar {
@@ -134,7 +176,7 @@ export default {
             z-index: -1;
             align-items: center;
 
-            &.active {
+            &.open {
                display: flex;
             }
 
