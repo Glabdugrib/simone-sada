@@ -61,6 +61,8 @@ export default {
 @import '../assets/scss/_variables.scss';
 @import '../assets/scss/style.scss';
 
+// [TODO] animazione navbar, trasparenza
+
 #header {
    position: fixed;
    top: 0;
@@ -96,7 +98,7 @@ export default {
             display: contents;
 
             li {
-               margin: 0 5px;
+               margin: 0 3px;
                font-size: 15px;
 
                a {
